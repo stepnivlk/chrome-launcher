@@ -98,6 +98,7 @@ defmodule ChromeLauncher.Finder do
   defp sort(paths) do
     paths
     |> Enum.filter(&executable?/1)
+    |> Enum.reverse()
     |> case do
       [first | _] -> {:ok, first}
       _ -> {:error, :chrome_not_found}
